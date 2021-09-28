@@ -1,0 +1,7 @@
+Void Methods
+Java comes with many different types of mathematical values and operators accessed using Math.
+More than one method can be declared inside one class
+Program Execution always begins at the first statement of main
+Parameters are the "variables" that a function uses
+Arguments are the actual values given to the parameters
+In functions with multiple parameters, each parameter has to be defined seperately
