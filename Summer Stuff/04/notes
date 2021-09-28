@@ -1,0 +1,9 @@
+Conditionals
+If statments evaluate an expression
+If the expression returns true, the code in the block after will be exectuted, otherwise the block of code will get skipped.
+It will then continue if there are other statements such as if else or else statements.
+In the case of an else statement if the expression returns false then the code block after the else statement will be executed.
+Return Statements
+Terminates a method before you reach the end
+Recusive Functions
+Functions that call on themselves
