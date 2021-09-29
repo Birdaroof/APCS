@@ -1,0 +1,6 @@
+Arrays
+Arrays have to be declared with the type of value that will be stored within them. 
+The new array can only hold values with the same type as provided.
+The array also has a length when created and it can only hold items up to that length
+Elements of arrays can be accessed using the index where the leftmost element has an index of 0.
+
