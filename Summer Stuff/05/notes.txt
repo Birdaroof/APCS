@@ -1,0 +1,3 @@
+Value Methods
+You can declare the type of value that will be returned from a method
+The method itself will have a return statement and will return something of the same type.

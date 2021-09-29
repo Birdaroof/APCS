@@ -1,0 +1,7 @@
+Loops
+While loops work similarily in Python and Javascript
+For loops requires
+- An initialization value (starting value of the loop variable)
+- A test which determines whether to run the code again
+- An incremental value that will increase the initialization value which will cause the function to eventually leave the loop
+
