@@ -1,4 +1,9 @@
-public class Hello {
+/* 
+Jomin Zhang
+APCS
+HW 08- Greet Function
+*/
+public class Greet {
 	public static void main(String[] args) {
 		greet("Anthony");
 		greet("Kevin");
