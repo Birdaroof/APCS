@@ -13,4 +13,8 @@ public class Greet {
 		System.out.println("Why, hello there, " + str + ". How do you do?" );
 	}
 }
-
+/*
+Notes
+- You can call functions within functions
+- The same function can be called multiple times with different variables.
+*/
