@@ -1,4 +1,4 @@
-/* 
+/*
 Jomin Zhang
 APCS
 HW 08- Greet Function
@@ -13,6 +13,7 @@ public class Greet {
 		System.out.println("Why, hello there, " + str + ". How do you do?" );
 	}
 }
+
 /*
 Notes
 - You can call functions within functions
