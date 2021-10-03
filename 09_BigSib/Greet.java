@@ -1,5 +1,5 @@
 /*
-Jomin Zhang, Chompsky; Nicole Zhou, Duck; Kevin Xiao, Mr.Swag
+Zooming Xippy Zookeepers + Mr.Swag, Duck, and Chompsky
 APCS
 HW 09- What Are Big Sibs Good For?
 */
