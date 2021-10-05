@@ -9,9 +9,6 @@ public class Greet {
 		BigSib.greet("Kevin");
 		BigSib.greet("Jomin");
 	}
-	public static void greet(String str){
-		System.out.println("Why, hello there, " + str + ". How do you do?" );
-	}
 }
 
 /*
