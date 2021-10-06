@@ -5,6 +5,9 @@ HW 12- What Are Big Sibs Good For?
 */
 public class BigSib {
 	String setHelloMsg;
+	public BigSib(String str) {
+		setHelloMsg = str;
+	}
 	public void hold(String str){
 		String setHelloMsg = str;
 	}
