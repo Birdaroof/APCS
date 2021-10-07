@@ -7,6 +7,8 @@ Discoveries
 - Constructors make it so that each new instance of the class BigSib will have the same default HelloMsg.
 - However this default value can still be changed and be different for each different object.
 -
+QCC
+- Can constructors have different default values (with an if statement or something like that)?
 */
 public class BigSib {
 	String setHelloMsg;
