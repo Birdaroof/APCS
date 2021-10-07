@@ -13,6 +13,23 @@ public class Greet {
     greeting = richard.greet("freshman");
     System.out.println(greeting);
 
+    BigSib daniel = new BigSib();
+    daniel.setHelloMsg("Salutations");
+
+    greeting = daniel.greet("Dr.Spaceman");
+    System.out.println(greeting);
+
+    BigSib nick = new BigSib();
+    nick.setHelloMsg("Hey ya");
+
+    greeting = nick.greet("King Fooey");
+    System.out.println(greeting);
+
+    BigSib david = new BigSib();
+    david.setHelloMsg("sup");
+
+    greeting = david.greet("mom");
+    System.out.println(greeting);
   } //end main()
 } //end Greet
 
