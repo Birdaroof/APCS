@@ -9,7 +9,7 @@ public class BigSib {
 		String setHelloMsg = str;
 	}
 	public String greet(String str){
-	  return (setHelloMsg + " " + str + "\n" + "Salutations Dr. Spaceman \nHey ya Kong Fooey \nSup mom");
+	  return (setHelloMsg + " " + str);
 	}
 	public String setHelloMsg(String str){
 		setHelloMsg = str;
