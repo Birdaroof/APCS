@@ -81,9 +81,13 @@ public class StatsDriver{
     System.out.println("... expecting 0");
     System.out.println(Stats.geoMean(1,5));
     System.out.println("... expecting 2");
+    
     System.out.println(Stats.geoMean(-1,2));
     System.out.println("... expecting error");
     // Actually returned 0?
+    System.out.println(Math.sqrt(1*-2));
+    // Same math that is done inside Stats.geoMean, but returns NaN as expected. When Stats.geoMean is forced to return a int/double it converts the NaN to 0
+     
     System.out.println(Stats.geoMean(-1,-4));
     System.out.println("... expecting 2");
     System.out.println(Stats.geoMean(-1,-4.0));
