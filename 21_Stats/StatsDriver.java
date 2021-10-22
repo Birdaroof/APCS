@@ -81,9 +81,13 @@ public class StatsDriver{
     System.out.println("... expecting 0");
     System.out.println(Stats.geoMean(1,5));
     System.out.println("... expecting 2");
+    
     System.out.println(Stats.geoMean(-1,2));
     System.out.println("... expecting error");
     // Actually returned 0?
+    System.out.println(Math.sqrt(1*-2));
+    // Same math that is done inside Stats.geoMean, but returns NaN as expected. When Stats.geoMean is forced to return a int/double it converts the NaN to 0
+    
     System.out.println(Stats.geoMean(-1,-4));
     System.out.println("... expecting 2");
     System.out.println(Stats.geoMean(-1,-4.0));
@@ -103,6 +107,7 @@ public class StatsDriver{
     System.out.println(Stats.geoMean(3.5,4.2,6.7));
     System.out.println("... expecting 4.6...");
 
+    
     /* Methods that should not work, geoMean is not designed to work with these amounts of parameters
     System.out.println(Stats.geoMean());
     System.out.println(Stats.geoMean(1));
