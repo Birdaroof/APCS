@@ -1,20 +1,18 @@
 /*
 JJ: (Jefford Shau and Jomin Zhang )
 APCS
-HW23 -- Coins
+HW24 -- While Loop
 2020-10-22
-
+time spent: 0.8 hours
  */
 
 /*
 DISCO:
-  0. Implemented the random class into my code to randomize the coin flips.
+  0. Incorporated while loops into our code to terminate under the given boolean expressions.
+  1. Trying to access private instance variables results in error.
 QCC:
-  1. How do you compare two objects in the same method when only using one of them as arguments?
-  2. How do you check if an object exists?
+  0. How can we answer the third problem by only using 1 while loop instead of 2?
 */
-
-import java.util.Random;
 
 public class Coin {
   private double value; // monetary worth
@@ -31,13 +29,13 @@ public class Coin {
    *  postcond:
    ***/
   public Coin() {
-    value = 0;
-    upFace = "heads";
     name = "null";
     flipCtr = 0;
     headsCtr = 0;
     tailsCtr = 0;
     bias = 0.5;
+    upFace = "heads";
+    value = 0;
   }
 
   /***
@@ -52,15 +50,13 @@ public class Coin {
       postcond:
   ***/
   public Coin( String s ) {
-    value = 0;
-    upFace = "heads";
+    name = s;
     flipCtr = 0;
     headsCtr = 0;
     tailsCtr = 0;
     bias = 0.5;
-    if ((s == "penny") || (s == "nickel") || (s == "dime") || (s == "quarter") || (s == "half dollar") || (s == "dollar")) {
-      name = s;
-    }
+    upFace = "heads";
+    value = assignValue(s);
   }
 
   /***
@@ -69,15 +65,13 @@ public class Coin {
       postcond:
   ***/
   public Coin( String s, String nowFace ) {
-    value = 0;
+    name = s;
     flipCtr = 0;
     headsCtr = 0;
     tailsCtr = 0;
     bias = 0.5;
-    if ((s == "penny") || (s == "nickel") || (s == "dime") || (s == "quarter") || (s == "half dollar") || (s == "dollar")) {
-      name = s;
-    }
     upFace = nowFace;
+    value = assignValue(s);
   }
   // Accessors...
   // ----------------------------
@@ -136,10 +130,12 @@ public class Coin {
       postcond: Coin's attribs reset to starting vals
   ***/
   public void reset(String s, double d ) {
-    if (((s == "heads") || (s == "tails")) && (0.0 <= d && d <= 1.0)) {
-        Coin reset = new Coin();
+    flipCtr = 0;
+    headsCtr = 0;
+    tailsCtr = 0;
+    bias = d;
+    upFace = s;
     }
-  }
 
   /***
    * String flip() -- simulates a Coin flip
@@ -151,17 +147,14 @@ public class Coin {
    * Returns "heads" or "tails"
    ***/
   public String flip() {
-    double bias = this.bias;
-    Random random = new Random();
-    double coinFlip = random.nextDouble(); // generates double between 0 and 1
-    if (coinFlip <= bias) {
+    flipCtr += 1;
+    if (Math.random() <= bias) {
       headsCtr += 1;
       upFace = "heads";
     } else {
       tailsCtr += 1;
       upFace = "tails";
     }
-    flipCtr += 1;
     return upFace;
   }
 
@@ -172,17 +165,8 @@ public class Coin {
    * or both showing tails. False otherwise.
    ***/
   public boolean equals(Coin other) {
-    if ((other.name != "heads") || (other.name != "tails")) {
-      if (upFace == other.upFace) {
-      return true;
-      } else {
-      return false;
-      }
-    } else {
-      return false;
-    }
+    return this.upFace == other.upFace; // this refers to this coin
   }
-
   /***
    * String toString() -- overrides toString() provided by Java
    * precond: n/a
@@ -191,5 +175,4 @@ public class Coin {
   public String toString() {
     return name + " -- " + upFace;
   }
-
-}//end class
+}
