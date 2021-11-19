@@ -1,0 +1,57 @@
+Debugging 
+3 Different Types of Errors
+  - Compile-time Errors
+    - Usually indicate something is wrong with the syntax
+      - Best way to avoid errors is to use incremental development
+      - In the case of multiple error messages, it does not mean that there are multiple errors, in this case, refer to the first error
+      - Reading error messages can help find the issue
+      - Sometimes the error messages are misleading and not helpful
+      - Afterwards check for common syntax issues
+        - Check parantheses and brackets (make sure they are properly nested and balanced)
+        - Check for the case of letters (java is type sensitive)
+        - Double quotes for strings and single quotes for chars
+        - Types should match
+        - If using a value method make sure to return the result and use it
+        - If using a void method, don't try to do anything with the result
+      - If these still don't work, it's possible the program is not reading the right file
+        - You can test this by putting an intentional error which should be spotted by the code
+        - This will let you know if you are reading the right file or not
+      - You can cut your code apart into halfs and then smaller and smaller pieces until you find the error
+  - Run-time Errors
+    - Usually caused by infinite loops
+      - To test where the program is starting to 'hang' you can put a print statement before and after the loop. 
+        - If you see the first print statement but not the second that means that something is going wrong within that loop
+        - You can then use print statements to print the condition and variables within the loop
+          - This will help with finding what is going wrong
+        - You can also put print statements at the start of method calls, this will help you find and follow the flow of execution
+        - Exceptions
+          - Examine where the error occured and read the message
+          - NullPointerException means that the variable is currently null.
+          - ArrayIndexOutOfBoundsException means you are trying to access an index that does not exist
+          - FileNotFoundException means that you are likely working in the wrong folder or with the wrong files
+          - ArithmeticException - usually division by zero
+        - Print statements are cruical to finding errors and helping you understand your code
+          - However you should be careful to make sure that you are not printing too many statements as that can become confusing
+          - Make sure to simplify your print statements, or comment out print statements that have already been verified and tested
+          - You can also simplify the problem or the methods
+          - Find the minimal test case
+          - Try reorganizing the program
+  - Logic Errors
+    - Program is doing the wrong thing
+      - Make a connection between the code and the behavior
+      - Make a mental model
+        - Break the program into components and test them independently
+        - This will test and help build up your mental model
+      - Common Errors
+        - Integer Divison always rounds towards zero
+        - Don't use == with doubles
+        - == checks if two things are identical (objects) whereas equals actually checks for equivalence
+      - Break down complex expressions using variables to make it easier to understand and test
+      - Utilize temporary variables
+  - Nothing Works
+    - Take a break from the computer
+      - This will help you relax and destress
+      - Taking a break can help you think about the program more clearly or in a different way
+    - Before asking for help, try to isolate the error and simplify the code.
+      - Make it easier for them to help you
+    - Consult your duckie!
