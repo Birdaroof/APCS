@@ -1,3 +1,10 @@
+/*****************************************************
+Team Gamma Ray: Kevin Xiao + Mr. Swag, Jun Hong Wang, Jomin Zhang
+APCS
+HW36 - All Quacked Up
+2021-11-119
+time spent:0.5 hours
+ *****************************************************/
 Debugging 
 3 Different Types of Errors
   - Compile-time Errors
