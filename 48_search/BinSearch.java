@@ -16,8 +16,8 @@ public class BinSearch
   {
     //uncomment exactly 1 of the 2 stmts below:
 
-    return binSearchIter( a, target, 0, a.length-1 );
-    //return binSearchRec( a, target, 0, a.length-1 );
+    //return binSearchIter( a, target, 0, a.length-1 );
+    return binSearchRec( a, target, 0, a.length-1 );
   }
 
 
@@ -29,30 +29,31 @@ public class BinSearch
     int tPos = -1; //init return var to flag value -1
 
     int m = (lo + hi) / 2; //init mid pos var
-    if (m = target){
-      return target;
+    if (target.compareTo(a[m]) == 0) // Middle Number and target are the same. This is the base case.
+    {
+      tPos = m;
     }
-    else if (m > target){
-      binSearchRec(a, target, lo, m);
-    }
-    else {
+    else if (target.compareTo(a[m]) == 1) // Middle Number is smaller than target
+    {
       binSearchRec(a, target, m, hi);
     }
-
+    else // Middle Number is larger than target
+    {
+      binSearchRec(a, target, lo, m);
+    }
 
     return tPos;
   }//end binSearchRec
 
 
-  public static int binSearchIter( Comparable[] a,
-                                   Comparable target,
-                                   int lo, int hi )
+
+//  public static int binSearchIter( Comparable[] a,   Comparable target, int lo, int hi )
   {
 
-    int tPos = -1; //init return var to flag value -1
-    int m = (lo + hi) / 2; //init mid pos var
+  //  int tPos = -1; //init return var to flag value -1
+  //  int m = (lo + hi) / 2; //init mid pos var
 
-    while( /* ? */ ) { // run until lo & hi cross
+//    while( /* ? */ ) { // run until lo & hi cross
 
       //update mid pos var
 
@@ -63,9 +64,8 @@ public class BinSearch
       // value at mid index lower than target
 
     }
-    return tPos;
-  }//end binSearchIter
-
+//    return tPos;
+//  }//end binSearchIter
 
 
   //tell whether an array is sorted in ascending order
@@ -103,7 +103,7 @@ public class BinSearch
   public static void main ( String[] args )
   {
 
-    /*----------------------------------------------------
+
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     System.out.println("\nNow testing binSearch on Comparable array...");
@@ -126,6 +126,10 @@ public class BinSearch
     System.out.println( "iArr3 sorted? -- " + isSorted(iArr2) );
 
     //search for 6 in array
+    System.out.println("testing: " + iArr2[2]);
+    System.out.println("testing compare: " + iArr2[2].compareTo(5)); // 6 > 5 = 1
+    System.out.println("testing compare: " + iArr2[2].compareTo(6)); // 6 = 6 = 0
+    System.out.println("testing compare: " + iArr2[2].compareTo(7)); // 6 < 7 = 1
     System.out.println( binSearch(iArr2,2) );
     System.out.println( binSearch(iArr2,4) );
     System.out.println( binSearch(iArr2,6) );
@@ -135,7 +139,7 @@ public class BinSearch
 
     //search for 43 in array
     System.out.println( binSearch(iArr2,43) );
-
+    /*----------------------------------------------------
     System.out.println( "now testing binSearch on iArr3..." );
     System.out.println( binSearch(iArr3,4) );
     System.out.println( binSearch(iArr3,8) );
