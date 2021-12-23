@@ -1,14 +1,11 @@
 /*
 Team GammaRay: Jun Hong Wang + Bob, Jomin Zhang + Chompsky, Kevin Xiao + Mr. Swag
 APCS pd6
-HW42 -- Be More Rational
-2021-12-4
+HW49 -- Compliance
+2021-12-23
 Time Spent: 0.75 hours
 DISCO:
-Floating point math in java is weird, since two numbers that should be the same might not be represented the same.
-For example, if we are comparing 0.333333 and 0.3333334, they're pretty similar (and in some cases just different representations of the same number), but java will think they're different.
-We compared the rational numbers 2/3 and 6/9, and they were not equal (in the if statement). So, we changed the method to subtracting one of the rationals from each other and
-checking if that equals to 0.
+We didn't need to implement interface comparable in the heading of class Rational.
 QCC:
 How can we deal with raising rationals to the power of?
 How would we raise integers to the power of rationals?
@@ -141,7 +138,9 @@ public class Rational {
   public boolean equals(Object input){
     if (input instanceof Rational){
       Rational r = (Rational) input;
-      return n * r.d - d * r.n;
+      if (n * r.d - d * r.n == 0){
+        return true;
+      }
     }
     return false;
   }
@@ -166,4 +165,3 @@ public class Rational {
     System.out.println("\n" + r.compareTo(s)); //0 means the numbers are (approximately) equal, 1 means r is bigger, -1 means s is bigger
     System.out.println("\n" + r.compareTo(p));
   }
-}
