@@ -7,7 +7,7 @@ Time Spent: 0.75 hours
 DISCO:
 Floating point math in java is weird, since two numbers that should be the same might not be represented the same.
 For example, if we are comparing 0.333333 and 0.3333334, they're pretty similar (and in some cases just different representations of the same number), but java will think they're different.
-We compared the rational numbers 2/3 and 6/9, and they were not equal (in the if statement). So, we changed the method to subtracting one of the rationals from each other and 
+We compared the rational numbers 2/3 and 6/9, and they were not equal (in the if statement). So, we changed the method to subtracting one of the rationals from each other and
 checking if that equals to 0.
 QCC:
 How can we deal with raising rationals to the power of?
@@ -75,7 +75,7 @@ public class Rational {
   //end of old code
 
   //beginning of new code
-  
+
   public static int gcdER(int a, int b) {
      // If a is our bigger number and both a and b are bigger than 0, we take the smaller number (b) and the bigger number (a) minus the smaller one (b)
      if (a > b && b > 0){
@@ -129,15 +129,21 @@ public class Rational {
     this.n = this.n / g;
     this.d = this.d / g;
   }
-  
-  public int compareTo(Rational input) {
-    if (this.r - input.r == 0) {
-      return 0;
-    } else if (this.r < input.r) {
-      return -1;
-    } else{
-      return 1;
+
+  public int compareTo(Object input) {
+    if (input instanceof Rational){
+      Rational r = (Rational) input;
+      return n * r.d - d * r.n;
     }
+    throw new ClassCastException("\ncompareTo() input not a Rational");
+  }
+
+  public boolean equals(Object input){
+    if (input instanceof Rational){
+      Rational r = (Rational) input;
+      return n * r.d - d * r.n;
+    }
+    return false;
   }
   //end of new code
 
