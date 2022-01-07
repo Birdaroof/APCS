@@ -8,20 +8,20 @@
  * class InsertionSort -- implements InsertionSort algorithm
  *
  * ALGO:
- * 
+ *
  * DISCO
  *
  * QCC
  * q0: How many passes to sort n elements?
- * a0: 
+ * a0:
  * q1: What do you know after pass p?
- * a1: 
+ * a1:
  * q2: How will you know when sorted?
  * a2:
  * q3: What constitues a pass?
  * a3:
  * q4: What must you track?
- * a4: 
+ * a4:
  ******************************/
 
 
@@ -61,21 +61,23 @@ public class InsertionSort
   // postcondition: data's elements sorted in ascending order
   public static void insertionSortV( ArrayList<Comparable> data )
   {
-    for(  ) {
+    for(int part = 0; part < data.size(); part++  ) {
       //partition marks first item in unsorted region
-
+      int partition = part;
       System.out.println( "\npartition: " + partition + "\tdataset:"); //diag
       System.out.println( data );
 
       //traverse sorted region from right to left
-      for(  ) {
+      for(int i = part + 1; i > 0; i --  ) {
 
         // "walk" the current item to where it belongs
         // by swapping adjacent items
-        if (  ) {
+        if (data.get(i) < data.get(i-1)  ) {
 
           System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
-          
+          Comparable temp = data.get(i);
+          data.set(i,data.get(i-1));
+          data.set(i-1,temp);
         }
         else
           break;
@@ -107,7 +109,6 @@ public class InsertionSort
 
   public static void main( String [] args )
   {
-    /*===============for VOID methods=============
       System.out.println("\n*** Testing sort-in-place (void) version... *** ");
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
@@ -117,6 +118,7 @@ public class InsertionSort
       glen.add(3);
       System.out.println( "\nArrayList glen before sorting:\n" + glen );
       insertionSortV(glen);
+      /*===============for VOID methods=============
       System.out.println( "\nArrayList glen after sorting:\n" + glen );
       ArrayList coco = populate( 10, 1, 1000 );
       System.out.println( "\nArrayList coco before sorting:\n" + coco );
