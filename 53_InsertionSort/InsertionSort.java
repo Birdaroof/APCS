@@ -121,15 +121,13 @@ public class InsertionSort
       glen.add(3);
       System.out.println( "\nArrayList glen before sorting:\n" + glen );
       insertionSortV(glen);
-      /*===============for VOID methods=============
       System.out.println( "\nArrayList glen after sorting:\n" + glen );
       ArrayList coco = populate( 10, 1, 1000 );
       System.out.println( "\nArrayList coco before sorting:\n" + coco );
       insertionSortV(coco);
       System.out.println( "\nArrayList coco after sorting:\n" + coco );
-      ============================================*/
 
-    /*==========for AL-returning methods==========
+
       System.out.println( "*** Testing non-void version... *** " );
       ArrayList glen = new ArrayList<Integer>();
       glen.add(7);
@@ -149,7 +147,7 @@ public class InsertionSort
       + cocoSorted );
       System.out.println( "\nArrayList coco after sorting:\n" + coco );
       System.out.println( coco );
-      ============================================*/
+
 
   }//end main
 
