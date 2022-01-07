@@ -72,7 +72,10 @@ public class InsertionSort
 
         // "walk" the current item to where it belongs
         // by swapping adjacent items
-        if (data.get(i).compareTo(data.get(i-1)) <0  ) {
+        if (i == data.size()){
+          break;
+        }
+        else if (data.get(i).compareTo(data.get(i-1)) <0  ) {
 
           System.out.println( "swap indices "+(i-1)+" & "+i+"..." ); //diag
           Comparable temp = data.get(i);
