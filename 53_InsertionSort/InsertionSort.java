@@ -1,27 +1,27 @@
-// Clyde "Thluffy" Sinclair
-// APCS pd0
+// Jomin Zhang + Chompsky
+// APCS pd6
 // HW53 -- implementing insertion sort
 // 2022-01-06r
-// time spent:  hrs
+// time spent:  0.5 hrs
 
 /******************************
  * class InsertionSort -- implements InsertionSort algorithm
  *
- * ALGO:
- *
+ * ALGO: Start a partition on the left side of the arraylist. Expand the partition by 1, comparing the added element with each element already within the partition and sorting it.
+ * Repeat until the partition is the length of the array.
  * DISCO
- *
+ * InsertionSort seems to have a worse "worst-case" scenario compared to the other methods of sorting. When would you use insertionsort?
  * QCC
  * q0: How many passes to sort n elements?
- * a0:
+ * a0: n-1 passes
  * q1: What do you know after pass p?
- * a1:
+ * a1: The first p elements are sorted
  * q2: How will you know when sorted?
- * a2:
+ * a2: When you have made n-1 passes.
  * q3: What constitues a pass?
- * a3:
+ * a3: When the next element is added to the partition and sorted.
  * q4: What must you track?
- * a4:
+ * a4: We must track the length of the partition as we expand it through the array.
  ******************************/
 
 
