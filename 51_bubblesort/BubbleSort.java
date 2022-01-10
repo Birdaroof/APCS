@@ -15,7 +15,7 @@
    After the first pass, we go through it again, and if there are no swaps (from counter), then the array is sorted, boolean variable for sorted set to true, break out of loop
    Depending on method, return AL or nothing.
  * DISCO
- * For ALs, the set method requires 2 parameters, the first one is for the index, and the second is for the element we want to set it to. 
+ * For ALs, the set method requires 2 parameters, the first one is for the index, and the second is for the element we want to set it to.
  * QCC
  * q0: If a pass requires no swaps, what do you know?
  * a0: the array is sorted
@@ -65,23 +65,15 @@ public class BubbleSort
   // postcondition: data's elements sorted in ascending order
   public static void bubbleSortV( ArrayList<Comparable> data )
   {
-    boolean measure = false;
     int swap = 0;
-    while (measure == false){
-      for (int i = data.size() - 1; i > 0; i--) {
-        if ((Integer)data.get(i - 1) > (Integer)data.get(i)) {
-          Comparable temp = data.get(i - 1);
-          data.set(i - 1, data.get(i));
-          data.set(i, temp);
-          swap += 1;
-        }
+    for (int i = data.size() - 1; i > 0; i--) {
+      if ((Integer)data.get(i - 1) > (Integer)data.get(i)) {
+        Comparable temp = data.get(i - 1);
+        data.set(i - 1, data.get(i));
+        data.set(i, temp);
+        swap += 1;
       }
-      if (swap == 0){
-        measure = true;
-      }
-      swap = 0;
     }
-    /* YOUR IMPLEMENTATION HERE */
   }
 
 
