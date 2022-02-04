@@ -69,15 +69,25 @@ public class StatPrinter
   public StatPrinter( ArrayList <Integer> data ) 
   { 
     _frequency = new ArrayList<Integer>(max(data) + 1);
-    
-    for (int i = 0; i < max(data) + 1; i ++){
-      var o = 0;
-      for (int j = 0; j < data.size(); j++) {
-        if (data.get(j) == i) o++;
-      }
-      _frequency.add(o);
+
+    for (int i = 0; i < max(data) + 1; i++) {
+      _frequency.add(0);
     }
-    /* YOUR IMPLEMENTATION HERE */
+    System.out.println(_frequency);
+    for (int f = 0; f < data.size() - 1; f++) {
+      System.out.println(_frequency);
+      _frequency.set(data.get(f), _frequency.get(f) + 1);
+    }
+
+
+    
+    // for (int i = 0; i < max(data) + 1; i ++){
+    //   var o = 0;
+    //   for (int j = 0; j < data.size(); j++) {
+    //     if (data.get(j) == i) o++;
+    //   }
+    //   _frequency.add(o);
+    // }
   }
 
 
@@ -93,7 +103,6 @@ public class StatPrinter
       max = Math.max(max,i);
     }
     return max;
-    /* YOUR IMPLEMENTATION HERE */
   }
 
 
