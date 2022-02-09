@@ -1,3 +1,11 @@
+/*
+JZ Gang : Jason Zhou, Jomin Zhang, Jaylen Zeng
+APCS pd7
+HW 61 - Instructions so Simple...
+2022-2-8
+DISCO:
+QCC:
+*/
 /***
   class MergeSort
   Implements mergesort on array of ints.
