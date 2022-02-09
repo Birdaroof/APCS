@@ -30,7 +30,7 @@ QCC:
       int placeB = 0;
       int counter = 0;
       while (placeA < a.length && placeB < b.length) {
-        
+
         if (a[placeA] <= b[placeB]) {
           merged[counter] = a[placeA];
           placeA++;
@@ -55,10 +55,10 @@ QCC:
         }
       }
       return merged;
-  
+
     }//end merge()
-  
-  
+
+
     /******************************************************
      * int[] sort(int[])
      * Sorts input array using mergesort algorithm
@@ -69,11 +69,24 @@ QCC:
       if (arr.length == 1) {
         return arr;
       }
-      
+      else {
+        int mid = arr.length/2;
+        int[] beginning = new int[mid];
+        int[] end = new int[arr.length - mid];
+        for (int i = 0; i < beginning.length; i ++){
+          beginning[i] = arr[i];
+        }
+        for (int j = 0; j < end.length; j++){
+          end[j] = arr[j + mid];
+        }
+        arr = merge(sort(beginning), sort(end));
+
+      }
+      return arr;
     }//end sort()
-  
-  
-  
+
+
+
     //-------------------HELPERS-------------------------
     //tester function for exploring how arrays are passed
     //usage: print array, mess(array), print array. Whaddayasee?
@@ -81,7 +94,7 @@ QCC:
       for( int i = 0 ; i<a.length; i++ )
         a[i] = 0;
     }
-  
+
     //helper method for displaying an array
     public static void printArray( int[] a ) {
       System.out.print("[");
@@ -90,12 +103,12 @@ QCC:
       System.out.println("]");
     }
     //---------------------------------------------------
-  
-  
+
+
     //main method for testing
     public static void main( String [] args )
     {
-      
+
         int[] arr0 = {0};
         int[] arr1 = {1};
         int[] arr2 = {1,2};
@@ -104,27 +117,26 @@ QCC:
         int[] arr5 = {4,3,2,1};
         int[] arr6 = {9,42,17,63,0,512,23};
         int[] arr7 = {9,42,17,63,0,9,512,23,9};
-  
-        // System.out.println("\nTesting mess-with-array method...");
-        // printArray( arr3 );
-        // mess(arr3);
-        // printArray( arr3 );
-  
+
+         System.out.println("\nTesting mess-with-array method...");
+         printArray( arr3 );
+         mess(arr3);
+         printArray( arr3 );
+
         System.out.println("\nMerging arr1 and arr0: ");
-        printArray( merge(arr6,arr7) );
-  
-        /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
-  
+        printArray( merge(arr1,arr0) );
+
+
         System.out.println("\nMerging arr4 and arr6: ");
         printArray( merge(arr4,arr6) );
-  
+
         System.out.println("\nSorting arr4-7...");
         printArray( sort( arr4 ) );
         printArray( sort( arr5 ) );
         printArray( sort( arr6 ) );
         printArray( sort( arr7 ) );
+        /*~~~~~~~~~~~~~~ Ye Olde Tester Bar ~~~~~~~~~~~~~~
         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     }//end main()
-  
+
   }//end class MergeSort
-  
