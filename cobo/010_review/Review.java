@@ -162,12 +162,100 @@ public class Review {
       return randomNegativeAdj();
     }
   }
-  public static void main(String[] args){
-    System.out.println(sentimentVal("Hello"));
-    System.out.println(sentimentVal("Nice"));
-    System.out.println(sentimentVal("Alabama"));
-    double num = sentimentVal("warm");
-    String word = sentimentVal(0.5);
-    double x = sentimentVal("good","bye");
+
+  //determines sentiment value of a review
+  public static double  totalSentiment(String fileName) {
+    double total = 0.0; 
+    String text = textToString(fileName);
+    int start = 0;
+    int end = text.indexOf(" ", 0);
+
+    while (end != -1) {
+      String word = text.substring(start, end);
+      total += sentimentVal(removePunctuation(word));
+      start = end + 1;
+      end = text.indexOf(" ", start);
+    }
+    //Split is not a part of the course framework. 
+    /*
+     String[] words = text.split(" ");
+     for (String word : words) {
+      total += sentimentVal(word);
+     }
+    */
+    return total;
+  }
+
+  public static int starRating(String fileName) {
+    int rating = 0;
+    if (totalSentiment(fileName) >= 15) {
+      rating = 4;
+    }
+    else if (totalSentiment(fileName) >= 10) {
+      rating = 3;
+    }
+    else if (totalSentiment(fileName) >= 5) {
+      rating = 2;
+    }
+    else if (totalSentiment(fileName) >= -5) {
+      rating = 1;
+    }
+    else {
+      rating = 0;
+    }
+    return rating;
+  }
+
+  //Activity3, Q4:
+  public static String fakeReview(String filename) {
+    ArrayList<String> strings = new ArrayList<String>(0);
+    int starRating = starRating(filename);
+    String out= "";
+    String text = filename;
+    String punctuationEnd = getPunctuation(text);
+    text = removePunctuation(text);
+    while (text.indexOf(" ") != -1 && text.length() > 0) {
+      strings.add(text.substring(0, text.indexOf(" ") + 1));
+      text = text.substring(text.indexOf(" ") + 1);
+      if (text.indexOf(" ") == -1) {
+        strings.add(text);
+        text = "";
+      }
+    }
+    for (int i = 0; i < strings.size(); i++) {
+      if (strings.get(i).charAt(0) == '*') {
+        if (starRating >= 3) {
+          strings.set(i, randomPositiveAdj());
+        } else {
+          strings.set(i, randomNegativeAdj());
+        }
+        
+      }
+    }
+    for (String string : strings) {
+      out += string;
+    }
+    return out + punctuationEnd;
+  }
+  
+  
+  public static void main(String[] args) {
+    System.out.println("why is it printing above I don't know but ignore above...");
+    
+    System.out.println(fakeReview("pig *pin powerful *chicken!"));
+
+    // System.out.println(sentimentVal("abandoned"));
+    // System.out.println(sentimentVal("corner"));
+    // System.out.println(sentimentVal("Timmy"));
+    // /*
+    // double num = sentimentVal("warm");
+    // String word = sentimentVal(0.5);
+    // double x = sentimentVal("good", "bad");
+    // */
+
+    // System.out.println(totalSentiment("SimpleReview.txt"));
+    // System.out.println(totalSentiment("26WestReview.txt"));
+    // System.out.println(starRating("SimpleReview.txt"));
+    // System.out.println(starRating("26WestReview.txt"));
   }
 }
