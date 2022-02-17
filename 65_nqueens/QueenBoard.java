@@ -37,13 +37,13 @@ public class QueenBoard
    */
   public boolean solve()
   {
-    addQueen(0, 0);
-    for (int i = 1; i < _board.length; i++) {
+    int qRow = 0;
+    for (int i = 0; i < _board.length; i++) {
       if (solveH(i)) break;
     }
     int numQueens = 0;
     for (int i = 0; i < _board.length; i++) {
-      for (int e = 0; e < _board.length; e++) {
+      for (int e = 0; e < _board.length; e++) { 
         if (_board[i][e] == 1) {
           numQueens++;
         }
@@ -80,7 +80,7 @@ public class QueenBoard
       return true;
       }
     
-      System.out.println(col);
+      //System.out.println(col);
       if (addQueen(i, col)) {
         if (solveH(col + 1)) {
           return true;
@@ -198,7 +198,13 @@ public class QueenBoard
   //main method for testing...
   public static void main( String[] args )
   {
-    QueenBoard b = new QueenBoard(8);
+    // QueenBoard test = new QueenBoard(8);
+    // for (int tester = 1; tester <= 40; tester++){
+    //   test = new QueenBoard(tester);
+    //   System.out.println(tester);
+    //   System.out.println(test.solve());
+    // }
+    QueenBoard b = new QueenBoard(3);
     System.out.println(b);
     /** should be...
        0	0	0	0	0	
