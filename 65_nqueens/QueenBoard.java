@@ -1,3 +1,13 @@
+/*
+TEAM JZ GANG: Jason Zhou, Jaylen Zeng, Jomin Zhang
+APCS 
+Pd 7
+2022 - 16 - 2
+Time spent: 1 hr
+Disco: Very tough
+QCC: can we get more time?
+*/
+
 /***
  * class QueenBoard
  * Generates solutions for N-Queens problem.
@@ -27,9 +37,25 @@ public class QueenBoard
    */
   public boolean solve()
   {
+    addQueen(0, 0);
+    for (int i = 1; i < _board.length; i++) {
+      if (solveH(i));
+    }
+    int numQueens = 0;
+    for (int i = 0; i < _board.length; i++) {
+      for (int e = 0; e < _board.length; e++) {
+        if (_board[i][e] == 1) {
+          numQueens++;
+        }
+      }
+    }
+    if (numQueens == _board.length) {
+      return true;
+    }
+    return false;
     /*
+    
     start at 0,0
-
     for loop and loop through colums
     -call solveH on that column
     -continue
@@ -37,7 +63,6 @@ public class QueenBoard
     -check if this solution is true
     -continue in the for loop until solution is found, otherwise if done return false
     */
-    return false;
   }
 
 
@@ -46,10 +71,29 @@ public class QueenBoard
    */
   private boolean solveH( int col ) 
   {
+    //looping throws rows
+    if (col == _board.length) {
+      return true;
+    }
+    
+    int e = 0;
+    for (int i = 0; i < _board.length; i++) {
+      e = i;
+      System.out.println(col);
+      if (addQueen(i, col)) {
+        if (solveH(col + 1)) {
+          return true;
+        } else {
+          removeQueen(i, col);
+        }
+      }
+    }
+    
     /*
     take in column, and check if there is a placement
     for loop() 
     */
+
     return false;
   }
 
@@ -61,6 +105,19 @@ public class QueenBoard
         all negs and 0's replaced with underscore
         all 1's replaced with 'Q'
     */
+    String printOut = "[\n";
+    for (int rows = 0; rows < _board.length; rows++) {
+      for (int cols = 0; cols < _board.length; cols++) {
+        if (_board[rows][cols] == 1) {
+          printOut += "Q, ";
+        } else {
+          printOut += "_, ";
+        }
+      }
+      printOut += "\n";
+    }
+    printOut += "]";
+    System.out.println(printOut);
   }
 
 
@@ -69,8 +126,8 @@ public class QueenBoard
 
   /***
    * <General description>
-   * precondition: 
-   * postcondition: 
+   * precondition: Row and col are actualy rows and colums
+   * postcondition: adds a queen and adds attack positions if possible
    */
   private boolean addQueen(int row, int col)
   {
@@ -95,9 +152,9 @@ public class QueenBoard
 
   /***
    * <General description>
-   * precondition: 
-   * postcondition: 
-   */
+   * precondition: row and col are actual spots
+   * postcondition: removes a queen and removes attack positions
+    */
   private boolean removeQueen(int row, int col){
     if ( _board[row][col] != 1 ) {
       return false;
@@ -121,8 +178,8 @@ public class QueenBoard
 
   /***
    * <General description>
-   * precondition: 
-   * postcondition: 
+   * precondition: class is instantiated
+   * postcondition: returns string representation
    */
   public String  toString()
   {
@@ -149,10 +206,9 @@ public class QueenBoard
        0	0	0	0	0	
        0	0	0	0	0	
     */
-
-    b.addQueen(3,0);
-    b.addQueen(0,1);
-    System.out.println(b);
+    System.out.println(b._board.length);
+    System.out.println(b.solve());
+    b.printSolution();
     /** should be...
        0	1	-1	-2	-1	
        0	0	-2	0	0	
@@ -170,6 +226,10 @@ public class QueenBoard
        0	0	0	0	-1	
        0	0	0	0	0	 
     */
+    QueenBoard c = new QueenBoard(4);
+    c.addQueen(0, 0);
+    c.addQueen(2, 1);
+    System.out.println(c);
     
   }
 
