@@ -39,7 +39,7 @@ public class QueenBoard
   {
     addQueen(0, 0);
     for (int i = 1; i < _board.length; i++) {
-      if (solveH(i));
+      if (solveH(i)) break;
     }
     int numQueens = 0;
     for (int i = 0; i < _board.length; i++) {
@@ -72,13 +72,14 @@ public class QueenBoard
   private boolean solveH( int col ) 
   {
     //looping throws rows
-    if (col == _board.length) {
-      return true;
-    }
     
     int e = 0;
     for (int i = 0; i < _board.length; i++) {
       e = i;
+      if (col == _board.length) {
+      return true;
+      }
+    
       System.out.println(col);
       if (addQueen(i, col)) {
         if (solveH(col + 1)) {
@@ -197,7 +198,7 @@ public class QueenBoard
   //main method for testing...
   public static void main( String[] args )
   {
-    QueenBoard b = new QueenBoard(5);
+    QueenBoard b = new QueenBoard(8);
     System.out.println(b);
     /** should be...
        0	0	0	0	0	
