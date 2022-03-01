@@ -37,7 +37,6 @@ public class QueenBoard
    */
   public boolean solve()
   {
-    int qRow = 0;
     for (int i = 0; i < _board.length; i++) {
       if (solveH(i)) break;
     }
@@ -205,15 +204,15 @@ public class QueenBoard
     //   System.out.println(test.solve());
     // }
     QueenBoard b = new QueenBoard(3);
-    System.out.println(b);
-    /** should be...
-       0	0	0	0	0	
-       0	0	0	0	0	
-       0	0	0	0	0	
-       0	0	0	0	0	
-       0	0	0	0	0	
-    */
-    System.out.println(b._board.length);
+    // System.out.println(b);
+    // /** should be...
+    //    0	0	0	0	0	
+    //    0	0	0	0	0	
+    //    0	0	0	0	0	
+    //    0	0	0	0	0	
+    //    0	0	0	0	0	
+    // */
+    // System.out.println(b._board.length);
     System.out.println(b.solve());
     b.printSolution();
     /** should be...
