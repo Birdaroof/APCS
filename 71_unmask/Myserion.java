@@ -14,17 +14,24 @@ public class Myserion {
     }
 
     public static int[] swap(int[] arr, int a, int b) {
-        int place = a;
+        int place = arr[a];
         int[] holder = arr;
-        holder[a] = b;
+        holder[a] = arr[b];
         holder[b] = place;
         return holder;
     }
 
+    public static String print(int[] arr) {
+        String holder = "{";
+        for (int i : arr ) {
+            holder +=  i + ", ";
+        }
+        return holder;
+    }
 
     public static void main(String[] args) {
         int[] ting = {7, 1, 5, 12, 3};
         doTing(ting, 0, 4, 2);
-        System.out.println(ting);
+        System.out.println(print(ting));
     }
 }
