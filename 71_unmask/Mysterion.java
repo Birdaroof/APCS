@@ -1,8 +1,11 @@
 public class Mysterion {
     public static void doTing(int[] arr, int a, int b, int c) {
-        System.out.println("Value of a " + a);
-        System.out.println("Value of b " + b);
-        System.out.println("Value of c " + c);
+        System.out.println("Value of a = " + a);
+        System.out.println("arr[a] " + arr[a]);
+        System.out.println("Value of b = " + b);
+        System.out.println("arr[b] " + arr[b]);
+        System.out.println("Value of c = " + c);
+        System.out.println("arr[c] " + arr[c]);
         var v = arr[c];
         swap(arr, c, b);
         var s = a;
@@ -22,7 +25,10 @@ public class Mysterion {
             }
         }
         swap(arr, b, s);
-
+        System.out.println("arr[a] " + arr[a]);
+        System.out.println("arr[b] " + arr[b]);
+        System.out.println("arr[c] " + arr[c]);
+        System.out.println("s = " + s);
     }
 
     public static int[] swap(int[] arr, int a, int b) {
@@ -46,8 +52,9 @@ public class Mysterion {
     }
 
     public static void main(String[] args) {
-        int[] ting = {7, 1, 5, 4, 3};
-        doTing(ting, 0, 4, 3);
+        int[] ting = {18, 9, 2, 19, 7};
+        doTing(ting, 0, 4, 2);
+        //doTing(ting, 0, 2, 1);
         System.out.println(print(ting));
     }
 }
