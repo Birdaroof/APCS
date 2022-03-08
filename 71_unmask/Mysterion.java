@@ -1,4 +1,4 @@
-public class Myserion {
+public class Mysterion {
     public static void doTing(int[] arr, int a, int b, int c) {
         var v = arr[c];
         swap(arr, c, b);
