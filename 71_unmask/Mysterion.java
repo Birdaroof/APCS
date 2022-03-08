@@ -1,5 +1,8 @@
 public class Mysterion {
     public static void doTing(int[] arr, int a, int b, int c) {
+        System.out.println("Value of a " + a);
+        System.out.println("Value of b " + b);
+        System.out.println("Value of c " + c);
         var v = arr[c];
         swap(arr, c, b);
         var s = a;
