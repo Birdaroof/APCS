@@ -29,6 +29,7 @@ public class Mysterion {
         System.out.println("arr[b] " + arr[b]);
         System.out.println("arr[c] " + arr[c]);
         System.out.println("s = " + s);
+        System.out.println(print(arr));
     }
 
     public static int[] swap(int[] arr, int a, int b) {
@@ -53,7 +54,11 @@ public class Mysterion {
 
     public static void main(String[] args) {
         int[] ting = {18, 9, 2, 19, 7};
-        doTing(ting, 0, 4, 2);
+        for (int i = 0; i < 4; i++ ){
+            doTing(ting,0,4,i);
+            System.out.println("\n");
+        }
+        //doTing(ting, 0, 4, 3);
         //doTing(ting, 0, 2, 1);
         System.out.println(print(ting));
     }
