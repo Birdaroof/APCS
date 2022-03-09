@@ -5,9 +5,9 @@
 // time spent: 0.5 hrs
 
 /***
- * 
+ *
  * ALGO
- *  - We just randomly generate possible moves and go through the recusion stack until we either complete a tour or 
+ *  - We just randomly generate possible moves and go through the recusion stack until we either complete a tour or
  *    if we can't continue, which we then backtrack to the last possible move
  *
  * DISCO
@@ -19,7 +19,7 @@
  *
  * *SPOILER ALERT* I REMOVED PRINTING SCREEN TO SAVE TIME BECAUSE IT WOULD TAKE TOO LONG
  * Mean execution times for boards of size n*n:
- * n=5   0.268 s    across 5 executions 
+ * n=5   0.268 s    across 5 executions
  * n=6   0.2882 s    across 5 executions
  * n=7   __s    across __ executions //uhh these are taking way too long
  * n=8   __s    across __ executions //uhh these are taking way too long
@@ -34,7 +34,7 @@ import java.util.*;
 
 public class KnightTour {
     public static void main(String[] args) {
-        int n = 6;
+        int n = 5;
 
         try {
             n = Integer.parseInt(args[0]);
@@ -53,17 +53,25 @@ public class KnightTour {
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // for fixed starting location, use line below:
-        tf.findTour( 2, 2, 1 );
-        System.out.println("is done");
+        // tf.findTour( 3, 2, 1 );
+        // System.out.println("is done");
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // for random starting location, use lines below:
-        // int startX = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
-        // int startY = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
-        // tf.findTour( startX, startY, 1 ); // 1 or 0 ?
-        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        int startX = (int) (Math.random() * n + 2);
+        System.out.println(startX);
+        int startY = (int) (Math.random() * n + 2);
+        System.out.println(startY);
+        tf.findTour( startX, startY, 1 ); // 1 or 0 ?
 
+        // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        // Testing every possible position on 5x5
+        // for (int i = 2; i < n + 2; i ++){
+        //   for (int j = 2; j < n + 2; j ++){
+        //     tf.findTour(i,j,1);
+        //   }
+        // }
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         // PUSHING FARTHER...
         // Systematically attempt to solve from every position on the board?
@@ -125,7 +133,7 @@ class TourFinder {
 
     /**
      * helper method to keep try/catch clutter out of main flow
-     * 
+     *
      * @param n delay in ms
      **/
     private void delay(int n) {
@@ -148,13 +156,13 @@ class TourFinder {
     {
     // delay(50); //slow it down enough to be followable
 
-    //if a tour has been completed, stop animation 
-    
+    //if a tour has been completed, stop animation
+
     if ( this._solved ) {
       System.out.println("SOLVED");
       System.exit(0);
-    } 
-        
+    }
+
     //primary base case: tour completed
     if (  moves == Math.pow(this._sideLength, 2) + 1 ) {
         this._solved = true;
@@ -163,7 +171,7 @@ class TourFinder {
     }
     //other base case: stepped off board or onto visited cell
     if ( _board[x][y] != 0 ) {
-        return; 
+        return;
     }
 
     else {
@@ -174,7 +182,7 @@ class TourFinder {
     //System.out.println( this ); //refresh screen
 
     // delay(1000); //uncomment to slow down enough to view
-    
+
     findTour(x + 2, y + 1, moves + 1);
     findTour(x + 2, y - 1, moves + 1);
     findTour(x + 1, y + 2, moves + 1);
@@ -187,7 +195,7 @@ class TourFinder {
     _board[x][y] = 0;
 
 
-    //System.out.println( this ); //refresh screen
+    // System.out.println( this ); //refresh screen
     }
     }//end findTour()
 

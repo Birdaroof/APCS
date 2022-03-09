@@ -1,5 +1,8 @@
-public class Myserion {
+public class Mysterion {
     public static void doTing(int[] arr, int a, int b, int c) {
+      System.out.println("Var a " + a);
+      System.out.println("Var b " + b);
+      System.out.println("Var c " + c);
         var v = arr[c];
         swap(arr, c, b);
         var s = a;
@@ -31,7 +34,7 @@ public class Myserion {
 
     public static void main(String[] args) {
         int[] ting = {7, 1, 5, 12, 3};
-        doTing(ting, 0, 4, 2);
+        doTing(ting, 0, 4, 3);
         System.out.println(print(ting));
     }
 }
