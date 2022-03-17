@@ -1,26 +1,14 @@
-// Watermelon: Justin Mohabir, Jomin Zhang, Anthony Sun
-//APCS pd7
-//HW77: Insert|Remove
-//2022-03-16
-//time spent: 0.5hr + class time
-/*
-Add at Index Algorithim
-1) Use a for loop to copy everything before the intended index
-2) 
-
-*/
-
 public class LList implements List //interface def must be in this dir
 {
 
   //instance vars
-  private LLNode _head;
+  private DLLNode _head;
   private int _size;
 
   // constructor -- initializes instance vars
   public LList( )
   {
-    _head = new LLNode(null, null);
+    _head = new DLLNode(null, null, null);
     _size=0;
   }
 
@@ -28,39 +16,39 @@ public class LList implements List //interface def must be in this dir
   //--------------v  List interface methods  v--------------
   public boolean add( String newVal )
     {
-      LLNode tmp = new LLNode( newVal, _head );
+      DLLNode tmp = new DLLNode( newVal, null, _head );
       _head = tmp;
       _size++;
+      _head.getNext().setPrev(_head);
       return true;
     }
 
   public void add( int index, String newVal )
   {
     // if the size is 0, the newVal becomes the head
-    LLNode tempNode = _head;
+    DLLNode tempNode = _head;
     if(_size==0){
       _head.setCargo(newVal);
     } else{
-      // we need the _size-1 because we are setting the next node with a null value
       for(int i=0;i<index-1;i++){
         tempNode = tempNode.getNext();
       }
-      tempNode.setNext(new LLNode( newVal, tempNode.getNext() ));
+      tempNode.setNext(new DLLNode( newVal, tempNode, tempNode.getNext() ));
     }
     _size++;
   }
 
   public String remove (int index){
-    LLNode tempNode = _head;
+    DLLNode tempNode = _head;
     //tempPointer
     String removed = "";
 
     for (int i = 0; i < index-1; i ++){
-      // Copies everything before the index
         tempNode = tempNode.getNext();
     }
     removed = tempNode.getNext().getCargo();
     tempNode.setNext(tempNode.getNext().getNext());
+    tempNode.getNext().setPrev(tempNode);
     _size--;
     return removed;
   }
@@ -72,7 +60,7 @@ public class LList implements List //interface def must be in this dir
       throw new IndexOutOfBoundsException();
     // code
     // iterates through the list
-    LLNode tempNode = _head;
+    DLLNode tempNode = _head;
     for(int i=0;i<index;i++){
       tempNode = tempNode.getNext();
     }
@@ -86,7 +74,7 @@ public class LList implements List //interface def must be in this dir
     if ( index < 0 || index >= size() )
       throw new IndexOutOfBoundsException();
     // code
-    LLNode tempNode = _head;
+    DLLNode tempNode = _head;
     String tempVal;
     for(int i=0;i<index;i++){
       tempNode = tempNode.getNext();
@@ -113,7 +101,7 @@ public class LList implements List //interface def must be in this dir
   public String toString()
   {
     String s = "[";
-    LLNode tempNode = _head;
+    DLLNode tempNode = _head;
     //iterates through the list, adding the cargo
     for(int i=0;i<_size;i++){
       s=s+tempNode.getCargo() + ",";
