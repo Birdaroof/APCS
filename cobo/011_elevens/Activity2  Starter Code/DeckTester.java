@@ -8,9 +8,9 @@ public class DeckTester {
 	 *	@param args is not used.
 	 */
 	public static void main(String[] args) {
-		String[] rank={"1","2","3"};
-		String[] suit={"hearts","spades","diamonds"};
-		int[] val={1,2,3};
+		String[] rank={"A","2","3", "4", "5", "6" , "7" , "8" , "9", "10", "Jack", "Queen", "King"};
+		String[] suit={"hearts","spades","diamonds", "clovers"};
+		int[] val={11,2,3,4,5,6,7,8,9,10,10,10,10};
 		Deck deck = new Deck(rank,suit,val);
 		System.out.println(deck);
 		deck.deal();
