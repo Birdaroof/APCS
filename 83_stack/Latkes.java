@@ -22,67 +22,52 @@ public class Latkes
   //constructor
   public Latkes( int initCapacity )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
-  }// O(?)
+    _stackSize = 0;
+    _stack = new String[initCapacity];
+  }// O(n)
 
 
   //means of insertion
   public void push( String s )
   {
+    if (isFull()) return;
+    _stack[_stackSize] = s;
+    _stackSize++;
     /* your
        SIMPLE
        SMART
        magicks
        here
     */
-  }// O(?)
+  }// O(1)
 
 
   //means of removal
   public String pop( )
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    if (isEmpty()) return "";
+    _stackSize--;
+    return _stack[_stackSize];
   }// O(?)
 
 
   //chk for emptiness
   public boolean isEmpty()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    return _stackSize==0;
   }// O(?)
 
 
   //chk for fullness
   public boolean isFull()
   {
-    /* your
-       SIMPLE
-       SMART
-       magicks
-       here
-    */
+    return _stackSize >= _stack.length;
   }// O(?)
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
 
     Latkes tastyStack = new Latkes(10);
 
@@ -126,6 +111,8 @@ public class Latkes
 
     //stack empty by now; SOP(null)
     System.out.println( tastyStack.pop() );
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main()
