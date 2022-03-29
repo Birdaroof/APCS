@@ -1,3 +1,10 @@
+/* Watermelon: Justin, Anthony, Jomin
+APCS pd7
+hw83 - stacks
+2022-03-29
+time spent: 0.5 hr
+*/
+
 /***
  * class Latkes
  * v1
@@ -7,8 +14,9 @@
 
 /***
     DISCO
-
+	* we need to check to make sure the list isn't full or empty before pushing or popping elements, respectively
     QCC
+	* what is the benefit of this over an array?
 
  **/
 
